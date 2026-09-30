@@ -9,16 +9,22 @@
 <body>
   <h1>Number Factoring Tool</h1>
   <input type="text" id="input">
-  <button id="calculateButton">Go!</button>
+  <button id="calculateButton">Factor!</button>
+  <button id="checkPrime">CheckPrime!</button>
   <h2 id="output">[outputs go here]</h2>
   <script>
   	let button = document.getElementById("calculateButton");
     let outputField = document.getElementById("output");
+    let checkPrimeButton = document.getElementById("checkPrime");
   	button.addEventListener("click", () => calculateFunct());
+    checkPrimeButton.addEventListener("click", () => checkPrime());
+    
+    let primeMode = false;
     
     function calculateFunct(){
     	let inputField = document.getElementById("input");
         let num = parseInt(inputField.value, 10);
+        
         
         if (num > 10000000){
         	outputField.textContent = "Too large. (>10000000)";
@@ -40,7 +46,21 @@
             	outputList.push(i);
             }
         }
+        if (primeMode){
+        	if (outputList.length == 2){
+               	outputField.textContent = num + " is a prime."
+            }
+            else {
+                outputField.textContent = num + " is composite."
+            }
+            return;
+        }
         outputField.textContent = "The factors of " + num + " are:\n " 									+ outputList;
+    }
+    function checkPrime(){
+        	primeMode = true;
+            calculateFunct();
+            primeMode = false;
     }
   </script>
 </body>
