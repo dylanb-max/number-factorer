@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cool Number Factoring Tool</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Lowkenuinely regret naming calculateButton, not a very good name considering im scaling it -->
-  <!-- whatever my lazy ahh is not gonna change it any time soon -->
+  <!-- lowk regret naming calculateButton not a very scalable name -->
+  <!-- sadly im lazy :) -->
+  <!-- one day i might come back and enhance this with beautiful css but today is not the day -->
   <h1>Number Factoring Tool</h1>
   <input type="text" id="input">
   <button id="calculateButton">Factor!</button>
@@ -16,22 +17,20 @@
   <h2 id="output">[outputs go here]</h2>
   <footer>not vibecoded guys <3</footer>
   <script>
-    // lol inline js
-  	let button = document.getElementById("calculateButton"); // also not a very specific or scalable name
-    let outputField = document.getElementById("output"); 
-    let checkPrimeButton = document.getElementById("checkPrime");
-  	button.addEventListener("click", () => calculateFunct());
+  	let button = document.getElementById("calculateButton"); // also not a great name lmao
+    let outputField = document.getElementById("output"); // whatever ill learn
+    
+    let checkPrimeButton = document.getElementById("checkPrime"); // ooo you like reading comments do you
+  	button.addEventListener("click", () => calculateFunct()); // well im gonna stop cause this is VeRy uNpRoFeSsIoNaL >:(
     checkPrimeButton.addEventListener("click", () => checkPrime());
     
     let primeMode = false;
     
-    function calculateFunct(){
+    function calculateFunct(){ // no. nothing can contain my whimsy .^.
     	let inputField = document.getElementById("input");
         let num = parseInt(inputField.value, 10);
-        
-        
         if (num > 10000000){
-        	outputField.textContent = "Too large. (>10000000)";
+        	outputField.textContent = "Too large. (>10000000)"; // ok il stop
             return;
         }
         if (num <= 0){
@@ -42,10 +41,8 @@
         	outputField.textContent = "Bad input. Parsed to int as NaN.";
             return;
         }
-        
         let outputList = [];
         for (let i = 1; i <= num; i++){
-        	
             if (num % i == 0){
             	outputList.push(i);
             }
@@ -61,10 +58,11 @@
         }
         outputField.textContent = "The factors of " + num + " are:\n " 									+ outputList;
     }
-    function checkPrime(){ // lmao beautiful logic here
+    
+    function checkPrime(){
         	primeMode = true;
-          calculateFunct();
-          primeMode = false;
+            calculateFunct(); // cause it reuses a lotta logic ykyk
+            primeMode = false;
     }
   </script>
 </body>
