@@ -8,8 +8,39 @@
 </head>
 <body>
   <h1>Number Factoring Tool</h1>
-  <input type="text">
-  <button>Go!</button>
-  <script src="script.js"></script>
+  <input type="text" id="input">
+  <button id="calculateButton">Go!</button>
+  <h2 id="output">[outputs go here]</h2>
+  <script>
+  	let button = document.getElementById("calculateButton");
+    let outputField = document.getElementById("output");
+  	button.addEventListener("click", () => calculateFunct());
+    
+    function calculateFunct(){
+    	let inputField = document.getElementById("input");
+        let num = parseInt(inputField.value, 10);
+        
+        if (num > 10000000){
+        	outputField.textContent = "Too large. (>10000000)";
+            return;
+        }
+        if (num <= 0){
+        	outputField.textContent = "Positive numbers only!";
+            return;
+        }
+        if (num != num){
+        	outputField.textContent = "Bad input. Parsed to int as NaN."
+        }
+        
+        let outputList = [];
+        for (let i = 1; i <= num; i++){
+        	
+            if (num % i == 0){
+            	outputList.push(i);
+            }
+        }
+        outputField.textContent = "The factors of " + num + " are:\n " 									+ outputList;
+    }
+  </script>
 </body>
 </html>
