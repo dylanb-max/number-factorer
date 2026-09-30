@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Lowkenuinely regret naming calculateButton, not a very good name considering im scaling it -->
+  <!-- whatever my lazy ahh is not gonna change it any time soon -->
   <h1>Number Factoring Tool</h1>
   <input type="text" id="input">
   <button id="calculateButton">Factor!</button>
@@ -14,8 +16,9 @@
   <h2 id="output">[outputs go here]</h2>
   <footer>not vibecoded guys <3</footer>
   <script>
-  	let button = document.getElementById("calculateButton");
-    let outputField = document.getElementById("output");
+    // lol inline js
+  	let button = document.getElementById("calculateButton"); // also not a very specific or scalable name
+    let outputField = document.getElementById("output"); 
     let checkPrimeButton = document.getElementById("checkPrime");
   	button.addEventListener("click", () => calculateFunct());
     checkPrimeButton.addEventListener("click", () => checkPrime());
@@ -58,10 +61,10 @@
         }
         outputField.textContent = "The factors of " + num + " are:\n " 									+ outputList;
     }
-    function checkPrime(){
+    function checkPrime(){ // lmao beautiful logic here
         	primeMode = true;
-            calculateFunct();
-            primeMode = false;
+          calculateFunct();
+          primeMode = false;
     }
   </script>
 </body>
